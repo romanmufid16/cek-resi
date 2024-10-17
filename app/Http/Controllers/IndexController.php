@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 class IndexController extends Controller
 {
     public function index () {
-        $apiKey = "9ca666469640db0b043bcbdb9923301b70754281065c09b2777979bffb1c1bc2";
+        $apiKey = "API_KEY";
         $url = "https://api.binderbyte.com/v1/list_courier?api_key=$apiKey";
         $response = Http::get($url);
         $data = $response->object();
@@ -22,7 +22,7 @@ class IndexController extends Controller
             'awb' => 'required',
         ]);
 
-        $apiKey = "9ca666469640db0b043bcbdb9923301b70754281065c09b2777979bffb1c1bc2";
+        $apiKey = "API_KEY";
         $courier = $request->input('courier');
         $awb = $request->input('awb');
         $url = "https://api.binderbyte.com/v1/track?api_key=$apiKey&courier=$courier&awb=$awb";
@@ -40,7 +40,7 @@ class IndexController extends Controller
     // Fungsi untuk mendapatkan data ekspedisi
     private function getCouriers()
     {
-        $apiKey = "9ca666469640db0b043bcbdb9923301b70754281065c09b2777979bffb1c1bc2";
+        $apiKey = "API_KEY";
         $url = "https://api.binderbyte.com/v1/list_courier?api_key=$apiKey";
         $response = Http::get($url);
         return $response->object();
